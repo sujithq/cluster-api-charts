@@ -65,5 +65,6 @@ resources:
     {{- end }}
     owner:
       name: {{ quote $clusterName }}
-    {{- toYaml (unset $mp "count") | nindent 4 }}
+    vmSize: {{ $mp.vmSize | default "Standard_DS2_v2" | quote }}
+    {{- toYaml (unset (unset $mp "count") "vmSize") | nindent 4 }}
 {{- end }}
