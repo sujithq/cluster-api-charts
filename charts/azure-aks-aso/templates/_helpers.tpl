@@ -68,7 +68,3 @@ resources:
     vmSize: {{ $mp.vmSize | default "Standard_DS2_v2" | quote }}
     {{- toYaml (unset (unset $mp "count") "vmSize") | nindent 4 }}
 {{- end }}
-
-
-
-
